@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('name');
+            $table->timestamps(); // Create and update date
         });
     }
 
@@ -23,5 +24,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('tasks');
+
     }
 };
+

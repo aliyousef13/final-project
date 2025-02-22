@@ -26,7 +26,17 @@ Route::post('/about' , function(){
         '1' => 'Tichnical' ,
         '2' => 'Finacial' ,
         '3' => 'Seles' ,
-    ];
-    return view('about' , data:conpact('name','departs'));
 
+    ];
+    return view('about' , data: compact('name','departs'));
+
+});
+
+Route::get('tasks' , function(){
+    return view('tasks');
+});
+Route::post('create' , function(){
+    $task_name = $_POST['name'];
+    DB::table('tasks')->insert(['name' => $task_name]);
+    return view('tasks');
 });
